@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>A7X</title>
+  <title>music-player</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -13,15 +13,14 @@
       <!-- Header -->
       <header class="header">
         <div class="header-content">
-          <h1 class="title">AVENGED SEVENFOLD</h1>
+          <h1 class="title">music player</h1>
         </div>
-        
       </header>
 
       <!-- Music Player -->
       <div class="music-grid">
         <!-- Song: Bat Country -->
-        <div class="song-card" data-song-id="1">
+        <div class="song-card song-theme-red" data-song-id="1">
           <div class="album-cover-container">
             <img src="images/albumcover.jpg" alt="Avenged Sevenfold - City of Evil" class="album-cover">
             <div class="album-overlay">
@@ -33,14 +32,39 @@
             <h3 class="song-title">Bat Country</h3>
             <p class="song-artist">Avenged Sevenfold</p>
             <p class="song-duration">
-            <p class="song-duration">
               <span class="current-time">00:00</span> / <span class="total-time">04:10</span>
+            </p>
           </div>
           <button class="play-button" data-song-id="1">
             <span class="play-text">GO!</span>
           </button>
           <audio class="audio-element" preload="auto">
             <source src="audio/batcountry.mp3" type="audio/mp3">
+            Browser tidak mendukung pemutar audio.
+          </audio>
+        </div>
+
+        <!-- Song: Let Down -->
+        <div class="song-card song-theme-blue" data-song-id="2">
+          <div class="album-cover-container">
+            <img src="images/letdown.jpg" alt="Radiohead - OK Computer" class="album-cover">
+            <div class="album-overlay">
+              <div class="album-name">Let Down</div>
+            </div>
+            <div class="playing-indicator" style="display: none;">ON</div>
+          </div>
+          <div class="song-info">
+            <h3 class="song-title">Let Down</h3>
+            <p class="song-artist">Radiohead</p>
+            <p class="song-duration">
+              <span class="current-time">00:00</span> / <span class="total-time">04:59</span>
+            </p>
+          </div>
+          <button class="play-button" data-song-id="2">
+            <span class="play-text">GO!</span>
+          </button>
+          <audio class="audio-element" preload="auto">
+            <source src="audio/letdown.mp3" type="audio/mp3">
             Browser tidak mendukung pemutar audio.
           </audio>
         </div>
