@@ -1,4 +1,4 @@
-class RockMusicPlayer {
+class musicplayer {
   constructor() {
     this.currentSong = null
     this.isPlaying = false
@@ -8,15 +8,19 @@ class RockMusicPlayer {
   }
 
   init() {
-    const card = document.querySelector(".song-card")
-    const songId = card.dataset.songId
-    const audioElement = card.querySelector(".audio-element")
-    const playButton = card.querySelector(".play-button")
+    const cards = document.querySelectorAll(".song-card")
 
-    this.audioElements[songId] = audioElement
+    cards.forEach((card) => {
+      const songId = card.dataset.songId
+      const audioElement = card.querySelector(".audio-element")
+      const playButton = card.querySelector(".play-button")
 
-    playButton.addEventListener("click", () => this.togglePlay(songId))
-    audioElement.addEventListener("ended", () => this.handleAudioEnd())
+      this.audioElements[songId] = audioElement
+
+      playButton.addEventListener("click", () => this.togglePlay(songId))
+
+      audioElement.addEventListener("ended", () => this.handleAudioEnd())
+    })
   }
 
   togglePlay(songId) {
@@ -44,7 +48,6 @@ class RockMusicPlayer {
     this.isPlaying = true
     audioElement.play()
 
-    // Update waktu berjalan
     this.updateTimeInterval = setInterval(() => {
       this.updateCurrentTime(audioElement, songId)
     }, 500)
@@ -66,7 +69,6 @@ class RockMusicPlayer {
     this.isPlaying = false
     this.currentSong = null
 
-    // Hentikan update waktu
     clearInterval(this.updateTimeInterval)
   }
 
@@ -95,25 +97,31 @@ class RockMusicPlayer {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.musicPlayer = new RockMusicPlayer()
+  window.musicPlayer = new musicplayer()
 })
 
 document.addEventListener("keydown", (e) => {
+  const mp = window.musicPlayer
+  if (!mp) return
+
+  if (e.code === "Digit1") {
+    mp.togglePlay("1")
+  }
+
+  if (e.code === "Digit2") {
+    mp.togglePlay("2")
+  }
+
+  if (e.code === "Digit3") {
+    mp.togglePlay("3") 
+  }
+
   if (e.code === "Space") {
     e.preventDefault()
-    const mp = window.musicPlayer
     if (mp.currentSong) {
       mp.togglePlay(mp.currentSong)
     } else {
       mp.togglePlay("1")
     }
-  }
-
-  if (e.code === "Digit1") {
-    window.musicPlayer.togglePlay("1")
-  }
-
-  if (e.code === "Digit2" || e.code === "Digit3") {
-    console.warn("Hanya lagu 1 (Bat Country) yang aktif untuk sekarang.")
   }
 })
