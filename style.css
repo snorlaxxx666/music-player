@@ -367,6 +367,7 @@ display: none;
 .song-theme-blue .song-duration {
   color: #60a5fa;
 }
+<<<<<<< HEAD
 .lyrics-container {
   margin-top: 10px;
   padding: 10px;
@@ -382,4 +383,6 @@ display: none;
   color: cyan;
   font-weight: bold;
 }
+=======
+>>>>>>> 46dcf08a9d4705e316117e58cb54b2ce615ffbd8
 

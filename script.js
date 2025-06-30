@@ -10,6 +10,7 @@ class musicplayer {
   }
 
   init() {
+<<<<<<< HEAD
     const cards = document.querySelectorAll(".song-card");
 
     cards.forEach((card) => {
@@ -31,6 +32,21 @@ class musicplayer {
       .then((data) => {
         this.karaokeData = data;
       });
+=======
+    const cards = document.querySelectorAll(".song-card")
+
+    cards.forEach((card) => {
+      const songId = card.dataset.songId
+      const audioElement = card.querySelector(".audio-element")
+      const playButton = card.querySelector(".play-button")
+
+      this.audioElements[songId] = audioElement
+
+      playButton.addEventListener("click", () => this.togglePlay(songId))
+
+      audioElement.addEventListener("ended", () => this.handleAudioEnd())
+    })
+>>>>>>> 46dcf08a9d4705e316117e58cb54b2ce615ffbd8
   }
 
   togglePlay(songId) {
@@ -82,11 +98,15 @@ class musicplayer {
     this.isPlaying = false;
     this.currentSong = null;
 
+<<<<<<< HEAD
     clearInterval(this.updateTimeInterval);
 
     if (songId === "2") {
       this.lyricsContainer.innerHTML = ""; // Kosongkan lirik saat berhenti
     }
+=======
+    clearInterval(this.updateTimeInterval)
+>>>>>>> 46dcf08a9d4705e316117e58cb54b2ce615ffbd8
   }
 
   stopAllSongs() {
@@ -131,6 +151,7 @@ class musicplayer {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+<<<<<<< HEAD
   window.musicPlayer = new musicplayer();
 });
 
@@ -145,3 +166,33 @@ document.addEventListener("keydown", (e) => {
     mp.togglePlay(mp.currentSong || "1");
   }
 });
+=======
+  window.musicPlayer = new musicplayer()
+})
+
+document.addEventListener("keydown", (e) => {
+  const mp = window.musicPlayer
+  if (!mp) return
+
+  if (e.code === "Digit1") {
+    mp.togglePlay("1")
+  }
+
+  if (e.code === "Digit2") {
+    mp.togglePlay("2")
+  }
+
+  if (e.code === "Digit3") {
+    mp.togglePlay("3") 
+  }
+
+  if (e.code === "Space") {
+    e.preventDefault()
+    if (mp.currentSong) {
+      mp.togglePlay(mp.currentSong)
+    } else {
+      mp.togglePlay("1")
+    }
+  }
+})
+>>>>>>> 46dcf08a9d4705e316117e58cb54b2ce615ffbd8
