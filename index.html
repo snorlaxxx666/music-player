@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A7X</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <h1 class="title">AVENGED SEVENFOLD</h1>
+        </div>
+        
+      </header>
+
+      <!-- Music Player -->
+      <div class="music-grid">
+        <!-- Song: Bat Country -->
+        <div class="song-card" data-song-id="1">
+          <div class="album-cover-container">
+            <img src="images/albumcover.jpg" alt="Avenged Sevenfold - City of Evil" class="album-cover">
+            <div class="album-overlay">
+              <div class="album-name">Bat Country</div>
+            </div>
+            <div class="playing-indicator" style="display: none;">ON</div>
+          </div>
+          <div class="song-info">
+            <h3 class="song-title">Bat Country</h3>
+            <p class="song-artist">Avenged Sevenfold</p>
+            <p class="song-duration">
+            <p class="song-duration">
+              <span class="current-time">00:00</span> / <span class="total-time">04:10</span>
+          </div>
+          <button class="play-button" data-song-id="1">
+            <span class="play-text">GO!</span>
+          </button>
+          <audio class="audio-element" preload="auto">
+            <source src="audio/batcountry.mp3" type="audio/mp3">
+            Browser tidak mendukung pemutar audio.
+          </audio>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; For Personal Use Only</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
